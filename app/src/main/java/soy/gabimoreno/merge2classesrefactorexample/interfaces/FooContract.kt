@@ -1,8 +1,8 @@
 package soy.gabimoreno.merge2classesrefactorexample.interfaces
 
-interface FooLegacy {
+interface FooContract {
     val property: String
-    val fooLegacyProperty: String
+    val fooProperty: String
     fun method()
-    fun fooLegacyMethod()
+    fun fooMethod()
 }

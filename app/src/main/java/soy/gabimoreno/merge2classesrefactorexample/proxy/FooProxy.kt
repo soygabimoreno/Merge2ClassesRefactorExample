@@ -1,33 +1,34 @@
 package soy.gabimoreno.merge2classesrefactorexample.proxy
 
-import soy.gabimoreno.merge2classesrefactorexample.classes.DefaultFoo
-import soy.gabimoreno.merge2classesrefactorexample.classes.DefaultFooLegacy
 import soy.gabimoreno.merge2classesrefactorexample.classes.DefaultNewFoo
-
-import soy.gabimoreno.merge2classesrefactorexample.interfaces.NewFoo as NewFooI
+import soy.gabimoreno.merge2classesrefactorexample.classes.Foo
+import soy.gabimoreno.merge2classesrefactorexample.classes.FooLegacy
+import soy.gabimoreno.merge2classesrefactorexample.interfaces.FooContract
+import soy.gabimoreno.merge2classesrefactorexample.interfaces.FooLegacyContract
+import soy.gabimoreno.merge2classesrefactorexample.interfaces.NewFooContract
 
 class FooProxy(
     private val isFeatureFlagEnabled: IsFeatureFlagEnabled,
 ) {
 
-    fun getFoo(): NewFooI {
+    fun getFoo(): FooContract {
         return if (isFeatureFlagEnabled()) {
             buildDefaultNewFoo()
         } else {
-            buildDefaultFoo()
+            buildFoo()
         }
     }
 
-    fun getFooLegacy(): NewFooI {
+    fun getFooLegacy(): FooLegacyContract {
         return if (isFeatureFlagEnabled()) {
             buildDefaultNewFoo()
         } else {
-            buildDefaultFooLegacy()
+            buildFooLegacy()
         }
     }
 }
 
-fun buildDefaultNewFoo(): NewFooI {
+fun buildDefaultNewFoo(): NewFooContract {
     return DefaultNewFoo(
         property = "",
         fooProperty = "",
@@ -35,18 +36,16 @@ fun buildDefaultNewFoo(): NewFooI {
     )
 }
 
-fun buildDefaultFoo(): NewFooI {
-    return DefaultFoo(
+fun buildFoo(): FooContract {
+    return Foo(
         property = "",
         fooProperty = "",
-        fooLegacyProperty = ""
     )
 }
 
-fun buildDefaultFooLegacy(): NewFooI {
-    return DefaultFooLegacy(
+fun buildFooLegacy(): FooLegacyContract {
+    return FooLegacy(
         property = "",
-        fooProperty = "",
         fooLegacyProperty = ""
     )
 }

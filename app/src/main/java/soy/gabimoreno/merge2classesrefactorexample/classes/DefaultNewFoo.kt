@@ -1,12 +1,12 @@
 package soy.gabimoreno.merge2classesrefactorexample.classes
 
-import soy.gabimoreno.merge2classesrefactorexample.interfaces.NewFoo as NewFooI
+import soy.gabimoreno.merge2classesrefactorexample.interfaces.NewFooContract
 
 class DefaultNewFoo(
     override val property: String,
     override val fooProperty: String,
     override val fooLegacyProperty: String = "",
-) : NewFooI {
+) : NewFooContract {
 
     override fun method() {
 
