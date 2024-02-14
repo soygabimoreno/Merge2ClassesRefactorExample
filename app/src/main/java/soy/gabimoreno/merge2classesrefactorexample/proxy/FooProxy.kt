@@ -1,8 +1,8 @@
 package soy.gabimoreno.merge2classesrefactorexample.proxy
 
-import soy.gabimoreno.merge2classesrefactorexample.classes.DefaultNewFoo
 import soy.gabimoreno.merge2classesrefactorexample.classes.Foo
 import soy.gabimoreno.merge2classesrefactorexample.classes.FooLegacy
+import soy.gabimoreno.merge2classesrefactorexample.classes.NewFoo
 import soy.gabimoreno.merge2classesrefactorexample.interfaces.FooContract
 import soy.gabimoreno.merge2classesrefactorexample.interfaces.FooLegacyContract
 import soy.gabimoreno.merge2classesrefactorexample.interfaces.NewFooContract
@@ -29,7 +29,7 @@ class FooProxy(
 }
 
 fun buildDefaultNewFoo(): NewFooContract {
-    return DefaultNewFoo(
+    return NewFoo(
         property = "",
         fooProperty = "",
         fooLegacyProperty = ""

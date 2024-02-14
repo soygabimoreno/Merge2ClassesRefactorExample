@@ -2,7 +2,7 @@ package soy.gabimoreno.merge2classesrefactorexample.classes
 
 import soy.gabimoreno.merge2classesrefactorexample.interfaces.NewFooContract
 
-class DefaultNewFoo(
+class NewFoo(
     override val property: String,
     override val fooProperty: String,
     override val fooLegacyProperty: String = "",
